@@ -1,0 +1,93 @@
+// -----------------------------------------------------------------------------
+// This file contains all typography-related rules
+// -----------------------------------------------------------------------------
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	width: 100%;
+	font-family: var(--color-primaryDark);
+	font-weight: 700;
+	color: var(--color-default);
+	padding: 0.67em 0;
+	margin: 0;
+}
+
+h1, .h1 {
+	font-size: var(--fontSize-h1);
+	line-height: var(--lineHeight-h1);
+}
+
+h2, .h2 {
+	font-size: var(--fontSize-h2);
+	line-height: var(--lineHeight-h2);
+}
+
+h3, .h3 {
+	font-size: var(--fontSize-h3);
+	line-height: var(--lineHeight-h3);
+}
+
+h4, .h4 {
+	font-size: var(--fontSize-h4);
+	line-height: var(--lineHeight-h4);
+}
+
+h5, .h5 {
+}
+
+h6, .h6 {
+}
+
+p { //large size
+	width: 100%;
+	font-size: var(--fontSize-p);
+	line-height: var(--lineHeight-p);
+	font-weight: 400;
+	margin: 0;
+	padding: 0.67em 0;
+
+	&.medium {
+		font-size: var(--fontSize-pMedium);
+		line-height: var(--lineHeight-pMedium);
+	}
+
+	&.small {
+		font-size: var(--fontSize-pSmall);
+		line-height: var(--lineHeight-pSmall);
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.weight-500 {
+	font-weight: 500;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+.tLink,
+a {
+	text-decoration: none;
+
+	&:focus,
+	&:hover {
+		outline: 0;
+	}
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+ul {
+	margin: 0;
+	padding: 0 0 0 20px;
+
+	li {
+		text-align: left;
+	}
+}

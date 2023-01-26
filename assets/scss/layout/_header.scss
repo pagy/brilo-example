@@ -1,0 +1,191 @@
+header {
+    position: relative;
+    background: var(--color-darkGreen);
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    height: 70px;
+    z-index: 10;
+
+    @include media('<#{map-get($media-breakpoints, "xxs")}') {
+        width: calc(100% - 8vw);
+        margin: 0 4vw;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100%
+    }
+}
+
+.mainNav {
+    @include flex-wrap;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+
+    @include media('<#{map-get($media-breakpoints, "md")}') {
+        display: none;
+        position: absolute;
+        flex-wrap: unset;
+        flex-flow: column;
+        z-index: 2;
+        right: 0;
+        top: 70px;
+        background: var(--color-darkGreen);
+    }
+
+    &.is-open {
+        @include media('<#{map-get($media-breakpoints, "md")}') {
+            display: flex;
+        }
+    }
+
+    &--item {
+        list-style: none;
+        margin-right: 20px;
+
+        @include media('<#{map-get($media-breakpoints, "md")}') {
+            margin: 0;
+            width: 100%;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &--link {
+        position: relative;
+        display: inline-block;
+        padding: 25px 5px;
+        text-transform: uppercase;
+        color: var(--color-white);
+        font-weight: 300;
+        font-size: var(--fontSize-pLarge);
+        line-height: var(--lineHeight-pLarge);
+
+        @include media('<#{map-get($media-breakpoints, "md")}') {
+            padding: 15px 40px;
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #2c5c65;
+        }
+
+        @include media('<#{map-get($media-breakpoints, "xxs")}') {
+            padding: 4vw 10vw;
+        }
+    
+
+        &:hover,
+        &:focus {
+            &:before {
+                @include media('>#{map-get($media-breakpoints, "md")}') {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        &:before {
+            @include media('>#{map-get($media-breakpoints, "md")}') {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                max-width: 0;
+                height: 4px;
+                background: var(--color-white);
+                @include transition-fast();
+            }
+        }
+    }
+
+    &--burger {
+        flex-direction:column;
+        width: 55px;
+        padding: 10px;
+        cursor:pointer;
+        display: none;
+        order: 5;
+
+        @include media('<#{map-get($media-breakpoints, "md")}') {
+            display: flex;
+        }
+    
+        span {
+            background: var(--color-white);
+            border-radius: 10px;
+            height: 3px;
+            margin: 4px 0;
+            transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            display: block;
+           
+            &:nth-child(1) {
+                width:60%;
+                opacity: 0.7;
+            }
+        
+            &:nth-child(2) {
+                width:100%;
+            }
+        
+            &:nth-child(3) {
+                width:80%;
+                opacity: 0.7;
+            }
+        }
+    
+        &.is-open span {
+            &:nth-of-type(1) {
+                transform-origin:bottom;
+                transform:rotatez(45deg) translate(5px,3px);
+                opacity: 1;
+            }
+
+            &:nth-of-type(2) {
+                transform-origin:top;
+                transform:rotatez(-45deg);
+                width:90%;
+            }
+
+            &:nth-of-type(3) {
+                transform-origin:bottom;
+                width:50%;
+                transform: translate(12px,-7px) rotatez(45deg);
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.shadow {
+    &Overlay {
+        @include media('<#{map-get($media-breakpoints, "md")}') {
+            max-width: 100%;
+            max-height: 100%;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.10);
+            z-index:  5;
+            pointer-events: none;
+            opacity: 0;
+            @include transition-default;
+        }
+  
+        &.is-active {
+            @include media('<#{map-get($media-breakpoints, "md")}') {
+                opacity: 1;
+                pointer-events: auto;
+            }    
+        }
+    }
+}

@@ -1,0 +1,84 @@
+// -----------------------------------------------------------------------------
+// Custom variables go below
+// -----------------------------------------------------------------------------
+:root {
+	// Colors
+	--color-primaryDark: #333333;
+
+	--color-blue: #3697a7;
+	--color-darkGreen: #1f464d;
+
+	--color-white: #ffffff;
+
+	// Alert Colors
+	--color-succesText: #37A374; 
+	--color-succesBackground: #e2f8ee;
+	--color-succesBorder: #75d0a9;
+
+	--color-infoText: #232935; 
+	--color-infoBackground: #e7e7e7; 
+	--color-infoBorder: #4F545D;
+
+	--color-warningText: #a46a1f;
+	--color-warningBackground: #f8e4c9;
+	--color-warningBorder: #eaa956;
+
+	--color-errorText: #ec5c74;
+	--color-errorBackground: #f8e2e4;
+	--color-errorBorder: #ec8a9a;
+
+	// Fonts
+    --font-stack: 'K2D', sans-serif;
+
+	// Size
+	--fontSize-h1: 2.8rem;
+	--fontSize-h2: 2.4rem;
+	--fontSize-h3: 2.2rem;
+	--fontSize-h4: 2.0rem;
+
+	--fontSize-pLarge:  1.6rem;
+	--fontSize-pMedium: 1.4rem;
+	--fontSize-pSmall: 1.2rem;
+
+	@include media('<#{map-get($media-breakpoints, "xxs")}') {
+		--fontSize-h1: 6.2vw;
+		--fontSize-h2: 5.2vw;
+		--fontSize-h3: 4.2vw;
+		--fontSize-h4: 3.6vw;
+
+		--fontSize-pLarge:  3.6vw;
+		--fontSize-pMedium: 3.3vw;
+		--fontSize-pSmall: 3.0vw;
+	}
+
+	// Line Height size
+	--lineHeight-h1: 4.4rem;
+	--lineHeight-h2: 3.4rem;
+	--lineHeight-h3: 2.8rem;
+	--lineHeight-h4: 2.6rem;
+
+	--lineHeight-pLarge:  2.8rem;
+	--lineHeight-pMedium: 2.6rem;
+	--lineHeight-pSmall: 2.1rem;
+
+	@include media('<#{map-get($media-breakpoints, "xxs")}') {
+		--lineHeight-h1: 8.4vw;
+		--lineHeight-h2: 7.6vw;
+		--lineHeight-h3: 6.8vw;
+		--lineHeight-h4: 6.2vw;
+
+		--lineHeight-pLarge:  5.6vw;
+		--lineHeight-pMedium: 4.8vw;
+		--lineHeight-pSmall: 4.2vw;
+	}
+
+	// Set border radius
+	--borderRadius-circle: 100px;
+	--borderRadius-large: 15px;
+	--borderRadius-medium: 8px;
+	--borderRadius-small: 4px;
+
+	// Set Hover time
+	--transTime: 0.250s;
+	--transTime-fast: 0.150s;
+}

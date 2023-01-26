@@ -1,0 +1,50 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+$media-breakpoints: (
+	'': 0,
+	'xxs': 420px,
+	'xs': 480px,
+	'sm': 576px,
+	'md': 768px,
+	'lg': 992px,
+	'xl': 1124px,
+	'xxl': 1366px,
+	'2xl': 1640px,
+	'3xl': 1921px
+) !default;
+
+$media-expressions: (
+	'screen': 'screen',
+	'print': 'print',
+	'handheld': 'handheld',
+	'landscape': '(orientation: landscape)',
+	'portrait': '(orientation: portrait)',
+	'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)',
+	'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi), (min-resolution: 3dppx)'
+) !default;
+
+
+$display-types: (
+	none,
+	inline,
+	inline-block,
+	block,
+	table,
+	table-cell,
+	table-row,
+	flex,
+	inline-flex,
+) !default;
+
+$unit-intervals: (
+	'px': 1,
+	'em': 0.01,
+	'rem': 0.1,
+	'': 0
+) !default;
+
+$im-media-support: true !default;
+$im-no-media-breakpoint: 'desktop' !default;
+$im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;

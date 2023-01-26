@@ -1,0 +1,83 @@
+// Configuration and helpers for grid.scss -->
+$_grid-layout-sizes: (
+	1: 8.33%,
+	2: 16.666%,
+	3: 25%,
+	4: 33.333%,
+	5: 41.667%,
+	6: 50%,
+	7: 58.333%,
+	8: 66.667%,
+	9: 75%,
+	10: 83.333%,
+	11: 91.667%,
+	12: 100%,
+);
+// Configuration and helpers for grid.scss end-->
+
+
+@each $media-breakpoint-key, $media-breakpoint-value in $media-breakpoints {
+  $operator: '>=';
+  $col-name: 'col-';
+
+  @if $media-breakpoint-key == '' {
+    $col-name: 'col';
+  }
+
+  @include media('#{$operator}#{$media-breakpoint-key}') {
+    .#{$col-name}#{$media-breakpoint-key} {
+      flex: 1 1 0;
+      max-width: 100%;
+    }
+
+    .#{$col-name}#{$media-breakpoint-key}--bare {
+      flex: 0 0 auto;
+    }
+
+    @each $key, $value in $_grid-layout-sizes {
+      .#{$col-name}#{$media-breakpoint-key}-#{$key} {
+        flex: 0 0 #{$value};
+        max-width: #{$value};
+      }
+
+      @if $key < 12 {
+        .#{$col-name}#{$media-breakpoint-key}-offset-#{$key} {
+          margin-left: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@each $media-breakpoint-key, $media-breakpoint-value in $media-breakpoints {
+  $operator: '>=';
+  $col-name: 'col-';
+
+  @if $media-breakpoint-key == '' {
+    $col-name: 'col';
+  }
+
+  @include media('#{$operator}#{$media-breakpoint-key}') {
+    .#{$col-name}#{$media-breakpoint-key} {
+      flex: 1 1 0;
+      max-width: 100%;
+    }
+
+    .#{$col-name}#{$media-breakpoint-key}--bare {
+      flex: 0 0 auto;
+    }
+
+    @each $key, $value in $_grid-layout-sizes {
+      .#{$col-name}#{$media-breakpoint-key}-#{$key} {
+        flex: 0 0 #{$value};
+        max-width: #{$value};
+      }
+
+      @if $key < 12 {
+        .#{$col-name}#{$media-breakpoint-key}-offset-#{$key} {
+          margin-left: #{$value};
+        }
+      }
+    }
+  }
+}

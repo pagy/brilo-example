@@ -1,0 +1,46 @@
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 5px 40px;
+    font-size: var(--fontSize-pLarge);
+    line-height: var(--lineHeight-pLarge);
+    text-transform: uppercase;
+    cursor: pointer;
+    z-index: 1;
+
+    @include media('<#{map-get($media-breakpoints, "xxs")}') {
+        padding: 1.5vw 8vw;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        max-width: 0;
+        @include transition-fast();
+        z-index: -1;
+    }
+
+    &Default {
+        background: var(--color-blue);
+        color: var(--color-white);
+
+        &:before {
+            background: var(--color-darkGreen);
+        }
+    }
+
+    &:hover,
+    &:focus {
+        outline: 0;
+        border: 0;
+
+        &:before {
+            max-width: 100%;
+        }
+    }
+}

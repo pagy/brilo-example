@@ -1,0 +1,194 @@
+.about {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+
+    @include media('<#{map-get($media-breakpoints, "3xl")}') {
+        min-height: calc(100vh - 70px);
+    }
+
+    @include media('<#{map-get($media-breakpoints, "lg")}') {
+        min-height: unset;
+    }
+
+    @include media('<#{map-get($media-breakpoints, "sm")}') {
+        padding: 0;
+    }
+
+    .container {
+        @include flex-wrap();
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &--info {
+        width: calc(100% - 300px);
+        @include flex-collum();
+        align-items: flex-start;
+        padding-right: 200px;
+
+        @include media('<#{map-get($media-breakpoints, "lg")}') {
+            padding-right: 50px;
+        }
+
+        @include media('<#{map-get($media-breakpoints, "md")}') {
+            width: calc(100% - 250px);
+            padding-right: 30px;
+        }
+
+        @include media('<#{map-get($media-breakpoints, "sm")}') {
+            width: 100%;
+            padding-right: 0;
+        }
+
+        .button {
+            margin: 30px 0;
+
+            @include media('<#{map-get($media-breakpoints, "md")}') {
+                margin: 15px 0;
+            }
+
+            @include media('<#{map-get($media-breakpoints, "xxs")}') {
+                margin: 4vw 0;
+            }
+        }
+    }
+
+    &--title {
+        color: var(--color-white);
+        font-size: var(--fontSize-h1);
+        line-height: var(--lineHeight-h1);
+        font-weight: 100;
+        text-transform: uppercase;
+
+        @include media('<#{map-get($media-breakpoints, "md")}') {
+            padding: 0;
+        }
+    }
+
+    &--desc {
+        color: var(--color-white);
+        font-size: var(--fontSize-pLarge);
+        line-height: var(--lineHeight-pLarge);
+    }
+
+    &--img {
+        width: 300px;
+
+        @include media('<#{map-get($media-breakpoints, "md")}') {
+            width: 250px;
+        }
+
+        @include media('<#{map-get($media-breakpoints, "sm")}') {
+            width: 100%;
+            margin: 15px 0;
+            order: -1;
+        }
+
+        @include media('<#{map-get($media-breakpoints, "xxs")}') {
+            margin: 4vw 0;
+        }
+        
+        img {
+            max-width: 100%;
+            width: 100%;
+            align-self: center;
+        }
+    }
+}
+
+.service {
+    display: flex;
+    align-items: center;
+
+    @include media('<#{map-get($media-breakpoints, "3xl")}') {
+        min-height: calc(100vh - 70px);
+    }
+
+    @include media('<#{map-get($media-breakpoints, "lg")}') {
+        min-height: unset;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    &--inner {
+        width: 100%;
+        @include flex-wrap();
+        justify-content: space-between;
+    }
+
+    &--box {
+        width: calc(100% / 3 - 15px);
+        @include flex-collum();
+        align-items: flex-start;
+        justify-content: space-between;
+        background: var(--color-blue);
+        padding-bottom: 15px;
+
+        @include media('<#{map-get($media-breakpoints, "md")}') {
+            width: calc(100% / 2 - 7.5px);
+            margin-bottom: 15px;
+        }
+
+        @include media('<#{map-get($media-breakpoints, "sm")}') {
+            width: 100%;
+            padding-bottom: 0;
+        }
+
+        @include media('<#{map-get($media-breakpoints, "xxs")}') {
+            margin-bottom: 4vw;
+        }
+
+        &:hover {
+            .service {
+                &--img {
+                    background-size: 115%;
+                }
+            }
+        }
+
+        &:last-child {
+            @include media('<#{map-get($media-breakpoints, "sm")}') {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &--img {
+        display: block;
+        width: 100%;
+        padding-bottom: 62.5%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 101%;
+        @include transition-fast();
+    }
+
+    &--title {
+        font-size: var(--fontSize-h3);
+        line-height: var(--lineHeight-h3);
+        color: var(--color-white);
+        padding: 15px 20px;
+        text-transform: uppercase;
+        font-weight: 100;
+
+        @include media('<#{map-get($media-breakpoints, "xxs")}') {
+            padding: 2vw 4vw;
+        }
+    }
+
+    &--desc {
+        font-size: var(--fontSize-pLarge);
+        line-height: var(--lineHeight-pLArge);
+        color: var(--color-white);
+        padding: 0 20px 15px 20px;
+        font-weight: 300;
+
+        @include media('<#{map-get($media-breakpoints, "xxs")}') {
+            padding: 0 4vw 4vw 4vw;
+        }
+    }
+}

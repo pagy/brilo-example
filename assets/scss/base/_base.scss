@@ -1,0 +1,96 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+ html {
+  /**
+ * 62.5% = 10px
+ * 100% = 16px
+ */
+  font-size: 62.5%;
+}
+
+body {
+  /**
+ * Make base font-size 16px after setting up 62.5% in html
+ */
+  font-family: var(--font-stack);
+  font-size: 1.6rem;
+  overflow-y: scroll;
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-primaryDark);
+
+  &.disableScroll {
+    @include media('<#{map-get($media-breakpoints, "md")}') {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  &::-webkit {
+    &-scrollbar {
+      width: 10px;
+    }
+
+    &-scrollbar {
+      &-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+      &-thumb {
+        background-color: var(--color-white);
+      }
+    }
+  }
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 136px);
+}
+
+.container {
+  display: block;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 1120px;
+  position: relative;
+
+  @include media('<=#{map-get($media-breakpoints, "xs")}') {
+    padding: 0 15px;
+  }
+
+  @include media('<=#{map-get($media-breakpoints, "xxs")}') {
+    padding: 0 4vw;
+  }
+
+  &--fluid {
+    @extend .container;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.flex {
+  &-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-collum {
+    display: flex;
+    flex-flow: column;
+  }
+}

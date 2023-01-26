@@ -1,0 +1,68 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin transition-default {
+  -webkit-transition: all var(--transTime) ease; 
+  -moz-transition: all var(--transTime) ease;
+  -ms-transition: all var(--transTime) ease;
+  -o-transition: all var(--transTime) ease;
+  transition: all var(--transTime) ease;
+  @content;
+}
+
+@mixin transition-fast {
+  -webkit-transition: all var(--transTime-fast) ease; 
+  -moz-transition: all var(--transTime-fast) ease;
+  -ms-transition: all var(--transTime-fast) ease;
+  -o-transition: all var(--transTime-fast) ease;
+  transition: all var(--transTime-fast) ease;
+  @content;
+}
+
+@mixin flex-wrap {
+  @extend .flex-wrap;
+  @content;
+}
+
+@mixin flex-collum {
+  @extend .flex-collum;
+  @content;
+}
+
+@mixin customeIcons {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IconsTargito' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+}
